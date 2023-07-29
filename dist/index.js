@@ -11,7 +11,7 @@ const app = (0, express_1.default)();
 const port = 3001;
 app.set("view engine", "ejs");
 app.set("views", path_1.default.join(__dirname, "..", "views"));
-app.use(express_1.default.static(path_1.default.join(__dirname, "public")));
+app.use(express_1.default.static(path_1.default.join(__dirname, "..", "public")));
 app.use(express_ejs_layouts_1.default);
 app.use(express_1.default.json());
 // routes

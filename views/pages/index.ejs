@@ -1,1 +1,31 @@
-<h1>Home</h1>
+<div class="w-full">
+  <div
+    class="flex items-start mb-28 md:mb-0 md:justify-center md:items-center min-h-max md:min-h-screen justify-between flex-col md:flex-row"
+  >
+    <div>
+      <h1
+        class="text-3xl font-extrabold tracking-tight leading-none text-gray-900 md:text-4xl lg:text-5xl dark:text-white"
+      >
+        Use Our
+      </h1>
+      <h1
+        class="text-4xl font-extrabold tracking-tight leading-none text-blue-800 md:text-5xl lg:text-6xl dark:text-white"
+      >
+        Sab Tools
+      </h1>
+      <h1
+        class="mb-4 text-4xl font-extrabold tracking-tight leading-none text-gray-900 md:text-5xl lg:text-6xl dark:text-white"
+      >
+        Forever Free
+      </h1>
+    </div>
+    <div class="flex justify-betw max-w-[400px]">
+      <img class="w-full" src="/images/site/hero.jpg" alt="Sab Tools" />
+    </div>
+  </div>
+</div>
+<h2 class="text-3xl md:text-4xl mb-5 font-extrabold dark:text-white">Social Media Tools</h2>
+<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
+  <% for (const tool of toolData) { %> <%- include('../partials/toolCard', {
+  tool }) %> <% } %>
+</div>

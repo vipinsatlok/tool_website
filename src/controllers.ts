@@ -1,30 +1,42 @@
 import { Request, Response } from "express";
 import { toolData } from "./data/toolData";
-import { titleToSlug } from "./utils/string";
 import express from "express";
-import expressLayouts from "express-ejs-layouts";
+import { siteName } from "./data/siteData";
 
 const app = express();
 
 const homePage = (req: Request, res: Response) => {
   console.log("sat saheb");
-  res.render("pages/index", { layout : "layout", title: "Home Page" });
+  res.render("pages/index", {
+    layout: "layout",
+    title: `${siteName}`,
+    toolData,
+  });
 };
 
 const aboutPage = (req: Request, res: Response) => {
-  res.render("about", { title: "About Page" });
+  res.render("pages/about", {
+    layout: "layout",
+    title: `About Page - ${siteName}`,
+  });
 };
 
 const contactPage = (req: Request, res: Response) => {
-  res.render("contact", { title: "Contact Page" });
+  res.render("pages/contact", {
+    layout: "layout",
+    title: `$Contact Page - {siteName}`,
+  });
 };
 
 const privacyPolicyPage = (req: Request, res: Response) => {
-  res.render("privacy-policy", { title: "Privacy Policy" });
+  res.render("pages/privacy-policy", {
+    layout: "layout",
+    title: `$Privacy Policy - {siteName}`,
+  });
 };
 
 const toolsPage = (req: Request, res: Response) => {
-  res.render("tools", { title: "Tools Page" });
+  res.render("pages/tools", { layout: "layout", title: `Tools - ${siteName}` });
 };
 
 const toolPage = (req: Request, res: Response) => {
@@ -39,7 +51,11 @@ const toolPage = (req: Request, res: Response) => {
     });
   }
 
-  res.status(200).render(`pages/tools/${tool.slug}`, { title: tool.title });
+  res.status(200).render(`tools/${tool.slug}`, {
+    layout: "custom-layout",
+    tool,
+    title: `${tool.title} - ${siteName}`,
+  });
 };
 
 export { homePage, aboutPage, contactPage, toolsPage, toolPage };
