@@ -1,13 +1,14 @@
 {
   "name": "tools-site",
   "version": "1.0.0",
-  "description": "My TypeScript project",
+  "description": "All Usefull Tools Website.",
   "main": "dist/index.js",
   "scripts": {
     "start": "node dist/index.js",
+    "build": "tsc",
     "dev": "ts-node src/index.ts"
   },
-  "author": "Your Name",
+  "author": "Vipin Das",
   "license": "MIT",
   "devDependencies": {
     "@types/node": "^16.7.10",
