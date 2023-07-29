@@ -1,31 +1,21 @@
-import express from 'express';
-import path from 'path';
-import expressLayouts from 'express-ejs-layouts';
+import express from "express";
+import path from "path";
+import expressLayouts from "express-ejs-layouts";
+import routes from "./routes";
 
 const app = express();
-const port = 3000;
+const port = 3001;
 
-app.set('view engine', 'ejs');
-app.set('views', path.join(__dirname, "..", 'views'));
-app.use(express.static(path.join(__dirname, 'public')));
+app.set("view engine", "ejs");
+app.set("views", path.join(__dirname, "..", "views"));
+app.use(express.static(path.join(__dirname, "public")));
 
-// Set up express-ejs-layouts middleware
 app.use(expressLayouts);
+app.use(express.json());
 
-// Define the layout file
-app.set('layout', 'layout');
-
-// Home route
-app.get('/', (req, res) => {
-  res.render('index', { title: 'Home Page' });
-});
-
-// About route
-app.get('/about', (req, res) => {
-  res.render('about', { title: 'About Page' });
-});
+// routes
+app.use("/", routes);
 
 app.listen(port, () => {
   console.log(`Server is running on http://localhost:${port}`);
 });
-
